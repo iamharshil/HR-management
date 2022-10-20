@@ -5,7 +5,7 @@ const { reset } = require("nodemon");
 // All Configs
 require("dotenv").config;
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const DB = require("./database/Database");
 
 // Routes
@@ -17,6 +17,7 @@ app.post("/", (req, res) => {
   res.status(200).json("post method is running");
 });
 
+// if no route available throw 404
 app.use((req, res) => {
   res.status(404).json("404: Page not found");
 });
