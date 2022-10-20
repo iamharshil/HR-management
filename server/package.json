@@ -1,0 +1,32 @@
+{
+  "name": "hr-management",
+  "version": "1.0.0",
+  "description": "- HR Management tool\r - This tools is helpful for HR to manage all their Employee and all the projects.\r - Even this tool is also for Project Manager too.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamharshil/HR-management.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamharshil/HR-management/issues"
+  },
+  "homepage": "https://github.com/iamharshil/HR-management#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5",
+    "open": "^8.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
