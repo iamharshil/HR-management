@@ -12,6 +12,19 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./public/views"));
 app.use(express.static(__dirname + "./public"));
 
+app.use((req, res, next) => {
+  console.log("verifyToken running.!!");
+  const bearerToken = req.headers["authorization"];
+  if (typeof bearerToken !== "undefined") {
+    const bearer = bearerToken.split(" ");
+    const bearerToken = bearer[1];
+    req.token = bearerToken;
+    next();
+  } else {
+    res.sendStatus(403);
+  }
+});
+
 // Routes
 app.get("/", (req, res) => {
   res.render("index");
@@ -22,8 +35,12 @@ app.post("/", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 app.get("/register", (req, res) => {
-  res.render("register");
+  res.render("login-register");
 });
 
 // if no route available throw 404
@@ -35,4 +52,4 @@ app.use((req, res) => {
 app.listen(PORT, () =>
   console.log(`Server is running on http://localhost:${PORT}`)
 );
-open(`http://localhost:${PORT}`);
+// open(`http://localhost:${PORT}`);
