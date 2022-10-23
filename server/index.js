@@ -10,6 +10,7 @@ const DB = require("./database/Database");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const registerRoute = require("./routes/register");
+const loginRoute = require("./routes/login");
 
 // Routes
 app.get("/api", (req, res) => {
@@ -18,8 +19,9 @@ app.get("/api", (req, res) => {
 
 // Register
 app.use("/api/register", registerRoute);
+app.use("/api/login", loginRoute);
 
-// if no route available throw 404
+// error is route does not exists
 app.use((req, res) => {
   res.status(404).json("404: API does not exists");
 });

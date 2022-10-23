@@ -1,5 +1,25 @@
-GET http://localhost:3000/
+POST http://localhost:8000/api/register
+Content-Type: application/json 
+
+{
+    "firstName": "Harsh",
+    "lastName": "Chudasama",
+    "gender": "Male",
+    "email": "hey@mail.com",
+    "mobile": "7043308617",
+    "country": "India",
+    "birthDate": "2001-10-11",
+    "password": "1234",
+    "password2": "1234"
+}
 
 ###
 
-POST http://localhost:3000/
+
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+    "email": "hey@mail.com",
+    "password": "H@rshill99"
+}
