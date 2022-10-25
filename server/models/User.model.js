@@ -16,7 +16,16 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    unique: true,
+    autoIndex: true,
+    lowercase: true,
+    required: [true, "Email not provided.!!"],
+    validate: {
+      validator: function (v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      },
+      message: "{VALUE} is not a valid email",
+    },
   },
   mobile: {
     type: Number,
@@ -35,6 +44,10 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  created: {
+    type: Date,
+    default: Date.now(),
   },
 });
 
